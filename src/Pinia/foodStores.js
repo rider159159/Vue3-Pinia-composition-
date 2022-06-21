@@ -13,6 +13,8 @@ export default defineStore('foodStore', {
   actions:{
     getLikeFood(){
       const user = userStore()
+      // user.userInfo.name = 'Tao'
+      // user.userInfo
       this.likeFood = `${user.userInfo.name}愛吃${this.food}`
     },
     async callUser() {

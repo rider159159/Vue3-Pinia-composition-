@@ -1,30 +1,32 @@
 <template>
-  <input v-model="userPinia.userInfo.name" type="text">
-    <br>
-  <input v-model="userInfo.name" type="text">
-    <br>
-  {{ str }}
-    <br>
-  <button @click="getUser">獲得使用者資訊</button>
+	<button type="button" @click="patch">修改 Store 資料 Patch</button>
+  <button type="button" @click="reset">reset</button>
+
+	<input v-model="userPinia.userInfo.name" type="text">
 
 </template>
 
 <script>
 import userStore from '@/Pinia/userStores';
-import { storeToRefs } from 'pinia';
-
 export default {
   setup(){
 		const userPinia = userStore()
-    const { getUser } = userStore()
-		const { userInfo, str } = storeToRefs(userPinia)
-		// console.log(str.value = 'Hello World')
-		return {
-        userPinia,
-        userInfo,
-        str,
-        getUser
-			}
-		}
+
+		function patch(){
+      userPinia.$patch({
+        userInfo: {
+          name:'Tao'
+        },
+        num: 8787,
+        str:"高歌離席",
+        boolean:true,
+      })
+    }
+
+    function reset(){
+      userPinia.$reset()
+    }
+		return{ userPinia, patch,reset }
 	}
+}
 </script>

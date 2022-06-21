@@ -14,10 +14,12 @@ app.use(router)
 
 app.mount('#app')
 
+
+
 //to, from, next
 router.beforeEach((to,form,next) => {
-  console.log(form)
   const tokenPinia = tokenStores()
+  console.log(tokenPinia)
   if(to.meta.requiresAuth){
     const url = `http://localhost:3034/token/checkToken`;
     const token = getToken()

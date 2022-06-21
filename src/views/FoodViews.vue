@@ -15,7 +15,7 @@
     </div>
     <p>{{ likeFood }}</p>
     <button @click="foodPinia.getLikeFood">愛吃食物</button>
-        <button @click="foodPinia.callUser">愛吃食物 Async</button>
+    <button @click="foodPinia.callUser">愛吃食物 Async</button>
 
     <br/>
   </div>

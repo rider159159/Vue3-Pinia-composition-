@@ -18,7 +18,6 @@ export default defineStore('tokenStore', {
       axios({
         method: 'get',
         url: url,
-        // withCredentials: true,
         headers: {
           "Ryder-cookie": token
         },
